@@ -1,3 +1,13 @@
 body {
-    background: cornsilk;
+    background:whitesmoke;
+}
+
+.stuff {
+    background-color: cornsilk;
+    border: double rgb(99, 99, 141) 1px;
+    border-radius: 10px;
+}
+
+hr {
+    border-color: black;
 }
