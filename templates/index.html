@@ -2,16 +2,23 @@
 
 {% block content %}
 
-    <div class="row pt-5">
-        <div class="col"></div>
-        <div class="col-10 stuff">
+<div class="row pt-5">
+    <div class="col"></div>
+    <div class="col-10 stuff">
         <h2 class="text-center">Solving systems of linear equations</h2>
         <hr>
-        <p class="text-center pb-3">Cramer's rule applies to systems of linear equations which have as many equations as unknowns.
-        Coefficients in every equation are being represented in a square matrix. The determinant of this matrix can be then used
-        for finding solutions.</p>
+        <p class="text-center pb-3">Cramer's rule applies to systems of linear equations which have as many equations
+            as unknowns.
+            Coefficients in every equation are being represented in a square matrix. The determinant of this matrix can
+            be then used
+            for finding solutions.</p>
+
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'results' %}" class="btn btn-primary btn-lg">Determinant</a>
         </div>
-        <div class="col"></div>
     </div>
+</div>
+<div class="col"></div>
+</div>
 
 {% endblock %}
