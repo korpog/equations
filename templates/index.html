@@ -9,21 +9,22 @@
         <hr>
         <p class="text-center my-2">Cramer's rule applies to systems of linear equations which have as many equations
             as unknowns.
-            $$a_{11}x_{1} + a_{12}x_{2} + ... + a_{1n}x_{n}  = b_{1}.$$
-            $$a_{21}x_{1} + a_{22}x_{2} + ... + a_{2n}x_{n}  = b_{2}.$$
-                                    ...
-            $$a_{n1}x_{1} + a_{n2}x_{2} + ... + a_{nn}x_{n}  = b_{n}.$$
+            $$a_{11}x_{1} + a_{12}x_{2} + ... + a_{1n}x_{n} = b_{1}.$$
+            $$a_{21}x_{1} + a_{22}x_{2} + ... + a_{2n}x_{n} = b_{2}.$$
+            ...
+            $$a_{n1}x_{1} + a_{n2}x_{2} + ... + a_{nn}x_{n} = b_{n}.$$
             Coefficients of every equation are being represented in a square matrix. The determinant of this matrix can
             be then used
             for finding solutions in the form of $$x_{i} = \frac{det(A_{i})}{det(A)}.$$
-            where \(A_{i}\) is the matrix A with i-th column replaced with values from the column vector b.
-        
-</p>
+            where \(A_{i}\) is the matrix \(A\) with \(i\)-th column replaced with values from the column vector \(b\).
+
+        </p>
+        {{form.as_table}}
         <div class="d-flex justify-content-center mb-3">
-            <a href="{% url 'results' %}" class="btn btn-primary btn-lg">Determinant</a>
+            <a href="{% url 'results' %}" class="btn btn-success btn-lg">Create equations</a>
         </div>
     </div>
-<div class="col"></div>
+    <div class="col"></div>
 </div>
 
 {% endblock %}
