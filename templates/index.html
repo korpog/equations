@@ -2,22 +2,27 @@
 
 {% block content %}
 
-<div class="row pt-5">
+<div class="row pt-4">
     <div class="col"></div>
     <div class="col-10 stuff">
-        <h2 class="text-center">Solving systems of linear equations</h2>
+        <h2 class="text-center my-2">Solving systems of linear equations</h2>
         <hr>
-        <p class="text-center pb-3">Cramer's rule applies to systems of linear equations which have as many equations
+        <p class="text-center my-2">Cramer's rule applies to systems of linear equations which have as many equations
             as unknowns.
-            Coefficients in every equation are being represented in a square matrix. The determinant of this matrix can
+            $$a_{11}x_{1} + a_{12}x_{2} + ... + a_{1n}x_{n}  = b_{1}.$$
+            $$a_{21}x_{1} + a_{22}x_{2} + ... + a_{2n}x_{n}  = b_{2}.$$
+                                    ...
+            $$a_{n1}x_{1} + a_{n2}x_{2} + ... + a_{nn}x_{n}  = b_{n}.$$
+            Coefficients of every equation are being represented in a square matrix. The determinant of this matrix can
             be then used
-            for finding solutions.</p>
-
-        <div class="d-flex justify-content-center">
+            for finding solutions in the form of $$x_{i} = \frac{det(A_{i})}{det(A)}.$$
+            where \(A_{i}\) is the matrix A with i-th column replaced with values from the column vector b.
+        
+</p>
+        <div class="d-flex justify-content-center mb-3">
             <a href="{% url 'results' %}" class="btn btn-primary btn-lg">Determinant</a>
         </div>
     </div>
-</div>
 <div class="col"></div>
 </div>
 
