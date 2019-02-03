@@ -19,10 +19,15 @@
             where \(A_{i}\) is the matrix \(A\) with \(i\)-th column replaced with values from the column vector \(b\).
 
         </p>
-        {{form.as_table}}
-        <div class="d-flex justify-content-center mb-3">
-            <a href="{% url 'results' %}" class="btn btn-success btn-lg">Create equations</a>
+    <form method="post">
+        {% csrf_token %}
+        <table class="table table-borderless" border="0">
+            {{ form.as_table }}
+        </table>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-info">Create equations</button>
         </div>
+    </form>
     </div>
     <div class="col"></div>
 </div>
