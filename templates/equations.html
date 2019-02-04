@@ -6,7 +6,9 @@
     <div class="col"></div>
     <div class="col-10 stuff">
         <form class="py-3" method="post">
-        {% for form in formset %}
+            {{ formset.management_form }}
+            {% for form in formset %}
+            <p><b>Equation {{forloop.counter}}</b></p>
             <div class="form-row mb-3">
                 {% csrf_token %}
                 {% for field in form %}
@@ -18,9 +20,9 @@
                 {% endfor %}
             </div>
             {% endfor %}
-                    <div class="d-flex justify-content-center mb-3">
-            <button type="submit" class="btn btn-info">Find solutions</button>
-        </div>
+            <div class="d-flex justify-content-center mb-3">
+                <button type="submit" class="btn btn-info">Find solutions</button>
+            </div>
         </form>
 
     </div>
