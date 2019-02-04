@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.forms import formset_factory
 from .forms import CreationForm, EquationForm
 from .utils import get_determinant
 
@@ -15,8 +16,10 @@ def index(request):
 
 
 def create_equations(request, num):
-    form = EquationForm(num)
-    return render(request, 'equations.html', context={'form': form})
+    EquationFormSet = formset_factory(EquationForm, extra=num - 1)
+    formset = EquationFormSet(form_kwargs={'num': num})
+    return render(request, 'equations.html', context={'formset': formset})
+
 
 def get_results(request):
     pass

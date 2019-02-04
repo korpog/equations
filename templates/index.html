@@ -7,11 +7,11 @@
     <div class="col-10 stuff">
         <h2 class="text-center my-2">Solving systems of linear equations</h2>
         <hr>
-        <p class="text-center my-2">Cramer's rule applies to systems of linear equations which have as many equations
+        <p class="my-2">Cramer's rule applies to systems of linear equations which have as many equations
             as unknowns.
             $$a_{11}x_{1} + a_{12}x_{2} + ... + a_{1n}x_{n} = b_{1}.$$
             $$a_{21}x_{1} + a_{22}x_{2} + ... + a_{2n}x_{n} = b_{2}.$$
-            ...
+            $$....$$
             $$a_{n1}x_{1} + a_{n2}x_{2} + ... + a_{nn}x_{n} = b_{n}.$$
             Coefficients of every equation are being represented in a square matrix. The determinant of this matrix can
             be then used
@@ -19,15 +19,21 @@
             where \(A_{i}\) is the matrix \(A\) with \(i\)-th column replaced with values from the column vector \(b\).
 
         </p>
-    <form method="post">
-        {% csrf_token %}
-        <table class="table table-borderless" border="0">
-            {{ form.as_table }}
-        </table>
-        <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-info">Create equations</button>
-        </div>
-    </form>
+        <hr>
+        <p class="my-2">
+        Generate a system of equations with \(n\) variables. Fill the coefficients manually and then find out the solutions.
+        </p>
+        <form method="post" class="form-inline my-3 justify-content-center">
+            {% csrf_token %}
+            <div class="form-group">
+            <label class="mx-2">Number of variables: </label>
+                {{ form.num }}
+                {{ form.num.errors }}
+            </div>
+            <div class="form-group mx-2">
+                    <button type="submit" class="btn btn-info">Create equations</button>
+            </div>
+        </form>
     </div>
     <div class="col"></div>
 </div>
