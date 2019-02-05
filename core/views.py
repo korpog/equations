@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.forms import formset_factory
 from .forms import CreationForm, EquationForm
-from .utils import get_determinant
+from .utils import solve
+import numpy as np
 
 
 def index(request):
@@ -15,12 +16,19 @@ def index(request):
     return render(request, 'index.html', {'form': form})
 
 
-def create_equations(request, num):
-    EquationFormSet = formset_factory(EquationForm, extra=num - 1)
+def solve_equations(request, num):
+    EquationFormSet = formset_factory(EquationForm, extra=num)
     if request.method == 'POST':
         formset = EquationFormSet(request.POST, form_kwargs={'num': num})
+        coefs = np.zeros((num, num))
+        b_vals = np.zeros((num))
         if formset.is_valid():
-            return render(request, 'results.html', context={'data': request.POST})
+            for i, form in enumerate(formset):
+                for j in range(num):
+                    coefs[i, j] = form.cleaned_data[f'coef_{j + 1}']
+                b_vals[i] = form.cleaned_data['b']
+            solutions = solve(coefs, b_vals)
+            return render(request, 'results.html', context={'data': solutions})
     formset = EquationFormSet(form_kwargs={'num': num})
     return render(request, 'equations.html', context={'formset': formset})
 
