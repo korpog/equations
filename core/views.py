@@ -20,8 +20,8 @@ def solve_equations(request, num):
     EquationFormSet = formset_factory(EquationForm, extra=num)
     if request.method == 'POST':
         formset = EquationFormSet(request.POST, form_kwargs={'num': num})
-        coefs = np.zeros((num, num))
-        b_vals = np.zeros((num))
+        coefs = np.zeros((num, num), dtype=int)
+        b_vals = np.zeros((num), dtype=int)
         if formset.is_valid():
             for i, form in enumerate(formset):
                 for j in range(num):
