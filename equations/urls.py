@@ -16,11 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic.base import TemplateView
-from core.views import index, solve_equations, get_results
+from core.views import index, solve_equations
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('equations/<int:num>', solve_equations, name="equations"),
-    path('results', get_results, name="results"),
 ]

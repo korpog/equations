@@ -31,7 +31,3 @@ def solve_equations(request, num):
             return render(request, 'results.html', context={'solutions': solutions})
     formset = EquationFormSet(form_kwargs={'num': num})
     return render(request, 'equations.html', context={'formset': formset})
-
-
-def get_results(request):
-    pass
