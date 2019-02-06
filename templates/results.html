@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{data}}</h1>
+<div class="row pt-4">
+    <div class="col"></div>
+    <div class="col-10 stuff">
+        <h2 class="text-center my-2">Solutions</h2>
+        <hr>
+        {% for key, value in solutions.items %}
+        <p class="my-2">\(x_{ {{forloop.counter}} }\) = {{value}}</p>
+        {% endfor %}
+    </div>
+    <div class="col"></div>
+</div>
 {% endblock %}

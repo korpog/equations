@@ -5,7 +5,7 @@ import copy
 def solve(matrix, b_vals):
     det_main = get_determinant(matrix)
     if det_main == 0:
-        return {'det_eq_zero': 'The determinant of the matrix is equal to zero. Cannot proceed.'}
+        return {'det_zero': 'The determinant of the matrix is equal to zero. Cannot solve.'}
     solutions = {}
     for i in range(len(b_vals)):
         mtrx = copy.copy(matrix)

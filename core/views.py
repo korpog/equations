@@ -28,7 +28,7 @@ def solve_equations(request, num):
                     coefs[i, j] = form.cleaned_data[f'coef_{j + 1}']
                 b_vals[i] = form.cleaned_data['b']
             solutions = solve(coefs, b_vals)
-            return render(request, 'results.html', context={'data': solutions})
+            return render(request, 'results.html', context={'solutions': solutions})
     formset = EquationFormSet(form_kwargs={'num': num})
     return render(request, 'equations.html', context={'formset': formset})
 
