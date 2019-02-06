@@ -11,7 +11,7 @@ def solve(matrix, b_vals):
         mtrx = copy.copy(matrix)
         swap_column(mtrx, i, b_vals)
         det = get_determinant(mtrx)
-        solution = round(det / det_main)
+        solution = round(det / det_main, 2)
         solutions[f'x_{i + 1}'] = solution
     return solutions
 
