@@ -4,13 +4,15 @@ import copy
 
 def solve(matrix, b_vals):
     det_main = get_determinant(matrix)
-    solutions = []
+    if det_main == 0:
+        return {'det_eq_zero': 'The determinant of the matrix is equal to zero. Cannot proceed.'}
+    solutions = {}
     for i in range(len(b_vals)):
         mtrx = copy.copy(matrix)
         swap_column(mtrx, i, b_vals)
         det = get_determinant(mtrx)
         solution = round(det / det_main)
-        solutions.append(solution)
+        solutions[f'x_{i + 1}'] = solution
     return solutions
 
 

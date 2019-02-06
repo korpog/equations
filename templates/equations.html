@@ -13,10 +13,18 @@
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="col">
-                    {{field.label_tag}}
                     {{field}}
                     {{field.errors}}
                 </div>
+                {% if forloop.last %}
+                {% elif  forloop.revcounter == 2 %}
+                <p></p>
+                {{field.label_tag}}
+                <b class="mx-1">=</b>
+                {% else %}
+                {{field.label_tag}}
+                <b class="mx-1">+</b>
+                {% endif %}
                 {% endfor %}
             </div>
             {% endfor %}

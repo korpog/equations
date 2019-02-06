@@ -16,10 +16,10 @@ class EquationForm(forms.Form):
         super(EquationForm, self).__init__(*args, **kwargs)
         for i in range(num + 1):
             if(i == range(num + 1)[-1]):
-                self.fields["b"] = forms.FloatField(label=f'\\(b\\)')
+                self.fields["b"] = forms.FloatField(label=f'\\(b\\)', label_suffix='')
                 self.fields["b"].widget.attrs.update(
                     {'class': 'form-control'})
             else:    
-                self.fields[f"coef_{i + 1}"] = forms.FloatField(label=f'\\(x_{i + 1}\\)')
+                self.fields[f"coef_{i + 1}"] = forms.FloatField(label=f'\\(x_{i + 1}\\)', label_suffix='')
                 self.fields[f"coef_{i + 1}"].widget.attrs.update(
                     {'class': 'form-control'})
