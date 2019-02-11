@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponseRedirect
 from django.forms import formset_factory
 from .forms import CreationForm, EquationForm
 from .utils import solve
@@ -24,9 +25,12 @@ def solve_equations(request, num):
         b_vals = np.zeros((num), dtype=float)
         if formset.is_valid():
             for i, form in enumerate(formset):
-                for j in range(num):
-                    coefs[i, j] = form.cleaned_data[f'coef_{j + 1}']
-                b_vals[i] = form.cleaned_data['b']
+                try:
+                    for j in range(num):
+                        coefs[i, j] = form.cleaned_data[f'coef_{j + 1}']
+                    b_vals[i] = form.cleaned_data['b']
+                except (KeyError):
+                    return HttpResponseRedirect(reverse('equations', args=(num,)))
             solutions = solve(coefs, b_vals)
             return render(request, 'results.html', context={'solutions': solutions})
     formset = EquationFormSet(form_kwargs={'num': num})
